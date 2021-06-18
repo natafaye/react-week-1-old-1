@@ -12,11 +12,21 @@ export default class Barn extends Component {
                 type: "goat",
                 name: "Natalie"
             }
-        ]
+        ];      
+
         return (
-            <div>
-                This is a barn.
+            <div className="row my-3">
+                <div className="col-12">
+                    <h3>Barn</h3>
+                </div>
+                { this.renderAnimalList(animals) }
             </div>
         )
+    }
+
+    renderAnimalList(animals) {
+        if (animals.length === 0) 
+            return <div className="col">There are no animals in the barn.</div>;
+        return animals.map(animal => <div className="col">{animal.name} - {animal.type}</div> );
     }
 }
